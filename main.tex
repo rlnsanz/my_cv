@@ -12,8 +12,10 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
-
 \usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
 
 %----------FONT OPTIONS----------
 % sans-serif
@@ -62,6 +64,16 @@
   }
 }
 
+\newcommand{\dissertationHeading}[5]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \small#3 & \textit{\small #4} \\
+      Dissertation: \textit{#5}  & \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -99,15 +111,9 @@
 
 \begin{document}
 
-%----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} &amp; Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} &amp; Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
 \begin{center}
-  \textbf{\Huge \scshape Rolando S. Garcia} \\ \vspace{1pt}
-  \href{mailto:rogarcia@berkeley.edu}{rogarcia@berkeley.edu} $|$
+  \textbf{\Huge \textsc{Rolando S. Garcia}} \\ \vspace{1pt}
+  \href{mailto:rolando.garcia@asu.edu}{rolando.garcia@asu.edu} $|$
   \href{https://rlnsanz.github.io}{rlnsanz.github.io} \\ \vspace{1pt}
 \end{center}
 
@@ -115,27 +121,24 @@
 %-----------EDUCATION-----------
 \section{Education}
 \resumeSubHeadingListStart
-\resumeSubheading
+\dissertationHeading
 {University of California, Berkeley}{Berkeley, CA}
-{Ph.D. in Computer Science, advised by Dr. Joseph M. Hellerstein}{Fall 2017 - Summer 2024}
+{Ph.D. in Computer Science advised by \href{https://dsf.berkeley.edu/jmh/}{\underline{Dr. Joseph M. Hellerstein}}}{Fall 2017 - Summer 2024}{The Management of Context in the Machine Learning Lifecycle}
 \resumeSubheading
 {Arizona State University}{Tempe, AZ}
 {B.S. in Computer Science, \textit{Summa Cum Laude}}{Spring 2014 - Spring 2017}
-\resumeSubheading
-{Northern Arizona University}{Flagstaff, AZ}
-{91 credits (3.97 GPA) toward B.A. in Philosophy}{Fall 2010 -- Fall 2013}
 \resumeSubHeadingListEnd
 
 \section{Awards and Fellowships}
 \resumeSubHeadingListStart
 \resumeSubSubheading
-{SCAI@ASU Presidential Postdoctoral Fellowship}{2024}
+{ASU Presidential Postdoctoral Fellowship, Ira A. Fulton Schools of Engineering}{2024}
 \resumeSubSubheading
 {Dell Technologies Inc. Research Award, one year of funding}{2023}
 \resumeSubSubheading
 {NSF Graduate Research Fellowship}{2017}
 \resumeSubSubheading
-{UC Berkeley's Chancellor Fellowship}{2017}
+{UC Berkeley Chancellor's Fellowship}{2017}
 \resumeSubSubheading
 {UC Berkeley's EECS Excellence Award}{2017}
 \resumeSubSubheading
@@ -151,10 +154,21 @@
 \resumeSubHeadingListStart
 
 \resumeSubheading
+{School of Computing \& AI
+  \href{https://scai.engineering.asu.edu/}
+  {\texttt{{scai.engineering.asu.edu}}}
+}{July 2024 -- Present}
+{Presidential Postdoctoral Scholar, advised by \href{http://rmaciejewski.faculty.asu.edu/}{\underline{Dr. Ross Maciejewski}}}{Arizona State University}
+\resumeItemListStart
+\resumeItem{NSF MFAI: Explaining GNNs: Where and When, Where and Why}
+\resumeItem{NSF LS: Addressing SocioTechnical Barriers to AI Adoption in the Legal and Public Sectors}
+\resumeItemListEnd
+
+\resumeSubheading
 {EPIC Data Lab
   \href{https://epic.berkeley.edu/}{\texttt{{epic.berkeley.edu}}}
 }{June 2021 -- June 2024}
-{Graduate Researcher, advised by \href{https://dsf.berkeley.edu/jmh/}{\underline{Joe Hellerstein}}}{University of California, Berkeley}
+{Graduate Researcher, advised by \href{https://dsf.berkeley.edu/jmh/}{\underline{Dr. Joe Hellerstein}}}{University of California, Berkeley}
 \resumeItemListStart
 \resumeItem{Operationalizing ML: An interview study, w Shreya Shankar et al.}
 \resumeItem{NSF Future of Work: Upskilling lawyers and journalists to process court cases at scale.}
@@ -165,7 +179,7 @@
 {RISE Lab
   \href{https://rise.cs.berkeley.edu/}{\texttt{{rise.cs.berkeley.edu}}}
 }{June 2017 -- June 2021}
-{Graduate Researcher, advised by \href{https://dsf.berkeley.edu/jmh/}{\underline{Joe Hellerstein}}}{University of California, Berkeley}
+{Graduate Researcher, advised by \href{https://dsf.berkeley.edu/jmh/}{\underline{Dr. Joe Hellerstein}}}{University of California, Berkeley}
 \resumeItemListStart
 \resumeItem{\href{https://github.com/ucbrise/flor}{\underline{FlorDB}}: Multiversion Hingsight Logging for Continuous Training}
 \resumeItem{Context capture, inference, and management in the Machine Learning Lifecycle.}
@@ -178,7 +192,7 @@
   \href{http://vader.lab.asu.edu/}
   {\texttt{{vader.lab.asu.edu}}}
 }{January 2015 -- May 2017}
-{Undergraduate Researcher, advised by \href{http://rmaciejewski.faculty.asu.edu/}{\underline{Ross Maciejewski}}}{Arizona State University, Tempe}
+{Undergraduate Researcher, advised by \href{http://rmaciejewski.faculty.asu.edu/}{\underline{Dr. Ross Maciejewski}}}{Arizona State University}
 \resumeItemListStart
 \resumeItem{NSF REU: Visual Analytics Algorithms for Spatiotemporal Analysis.}
 \resumeItem{Visual Analytics of Crowd Spatiotemporal Data (VAST Grand Challenge Award).}
@@ -189,11 +203,9 @@
   \href{http://epistasis.org/}
   {\texttt{{epistasis.org}}}
 }{June 2016 -- August 2016}
-{Undergraduate Researcher, advised by \href{https://twitter.com/randal_olson}{\underline{Randy Olson}}
-  and
-  \href{http://epistasis.org/jason-h-moore-phd/}{\underline{Jason Moore}}
+{Undergraduate Researcher, advised by \href{http://epistasis.org/jason-h-moore-phd/}{\underline{Dr. Jason Moore}}
 }
-{University of Pennsylvania, Philadelphia}
+{University of Pennsylvania}
 \resumeItemListStart
 \resumeItem{DELFT: Deep Learning Feature of \href{http://epistasislab.github.io/tpot/}{TPOT}.}
 \resumeItem{Leadership Alliance participant.}
@@ -210,17 +222,13 @@
 \resumeSubHeadingListStart
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Flow with FlorDB: Incremental Context Maintenance} & \emph{submitted CIDR} 2025 \\
-  \textbf{for the Machine Learning Lifecycle} & \\
+  \textbf{Flow with FlorDB: Incremental Context Maintenance for the ML Lifecycle} & \emph{CIDR} 2025 \\
+  % \textbf{Machine Learning Lifecycle} & \\
   \emph{Rolando Garcia}, Pragya Kallanagoudar, Chithra Anand, Sarah E. Chasins, & \\
-  Joseph M. Hellerstein, Aditya G. Parameswaran. \textit{submitted CIDR}, 2025.
+  Erin M. Kerrison, Aditya G. Parameswaran, Joseph M. Hellerstein. & \\
+  \textit{Conference on Innovative Data Systems Research}, 2025. & \\
 \end{tabular*}\vspace{0pt}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Multiversion Hindsight Logging for Continuous Training} & \emph{ArXiv} 2023 \\
-  \emph{Rolando Garcia}, Anusha Dandamudi, Gabriel Matute, Lehan Wan, \\
-  Joseph E. Gonzalez, Joseph M. Hellerstein, Koushik Sen.
-\end{tabular*}\vspace{0pt}
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
   \textbf{``We Have No Idea How Models will Behave in Production until Production":} & \emph{CSCW} 2024 \\
@@ -232,7 +240,23 @@
 \end{tabular*}\vspace{0pt}
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Hindsight Logging for Model Training} & \emph{PVLDB} 2021 \\
+  \textbf{Quilt: Custom UIs for Linking Unstructured Documents} & \emph{UIST Demo} 2024 \\
+  \textbf{to Structured Dataasets} & \\
+  Pragya Kallanagoudar, Chithra Anand, \emph{Rolando Garcia}, Rebecca M. M. Hicke, & \\
+  Aditya G. Parameswaran, Eunice Jun , Sarah E. Chasins. \textit{UIST Adjunct '24:} & \\
+  \textit{Proceedings of the 37th Annual ACM Symposium on User Interface Software} & \\
+  \textit{and Technology}, 2024.
+\end{tabular*}\vspace{0pt}
+
+
+\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{Multiversion Hindsight Logging for Continuous Training} & \emph{Pre-print} 2024 \\
+  \emph{Rolando Garcia}, Anusha Dandamudi, Gabriel Matute, Lehan Wan, \\
+  Joseph E. Gonzalez, Joseph M. Hellerstein, Koushik Sen. \emph{ArXiv}, 2024.
+\end{tabular*}\vspace{0pt}
+
+\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{Hindsight Logging for Model Training} & \emph{VLDB} 2021 \\
   \emph{Rolando Garcia}, Eric Liu,Vikram Sreekanti, Bobby Yan,
   & \\
   Anusha Dandamudi, Joseph E. Gonzalez, Joseph M. Hellerstein, Koushik Sen. & \\
@@ -268,7 +292,7 @@
 
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{VADER/VIS Grand Challenge Entry} & \emph{IEEE VAST} 2015 \\
+  \textbf{VADER/VIS Grand Challenge Award} & \emph{IEEE VAST} 2015 \\
   Michael Steptoe, Robert Kr\"uger, Yifan Zhang,
   Xing Liang, \emph{Rolando Garcia}, & \\
   Sagarika Kadambi, Wei Luo,
@@ -280,6 +304,7 @@
 
 \resumeSubHeadingListEnd
 
+\pagebreak
 
 
 \section{Talks}
@@ -287,28 +312,30 @@
 \resumeSubHeadingListStart
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{Incremental Context Maintenance for the ML Lifecycle} & \emph{CIDR} 2025 \\
+  \emph{Rolando Garcia}, Pragya Kallanagoudar, Chithra Anand, Sarah E. Chasins \ & Amsterdam \\
+  Erin M. Kerrison, Aditya G. Parameswaran, Joseph M. Hellerstein. January 2025. & \\
+\end{tabular*}\vspace{0pt}
+
+
+\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{How Engineers Operationalize Machine Learning} & \emph{CSCW} 2024 \\
+  Shreya Shankar, \emph{Rolando Garcia}, Joseph M. Hellerstein, Aditya G. Parameswaran. \ & Costa Rica \\
+  November 2024. & \\
+\end{tabular*}\vspace{0pt}
+
+
+\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{Flow with FlorDB: Agile MLOps without Compromises}  & \emph{Mines Seminar}, 2024 \\
+  \emph{Rolando Garcia}. December 2022. & Golden, CO \\
+\end{tabular*}\vspace{0pt}
+
+
+\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
   \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Flyte, 2022} \\
   \emph{Rolando Garcia}, Shreya Shankar. December 2022. &
 \end{tabular*}\vspace{0pt}
 
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Salesforce, 2022} \\
-  Shreya Shankar, \emph{Rolando Garcia}. San Francisco Bay Area, November 2022. & San Francisco
-\end{tabular*}\vspace{0pt}
-
-
-\resumeSubHeadingListEnd
-
-\pagebreak
-
-\section{Talks (Cont'd)}
-\resumeSubHeadingListStart
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Weights \& Biases, 2022} \\
-  Shreya Shankar, \emph{Rolando Garcia}. San Francisco Bay Area, October 2022. &
-\end{tabular*}\vspace{0pt}
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
   \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Inaugural Address, 2022} \\
@@ -318,23 +345,12 @@
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
   \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Canva, 2022} \\
-  \emph{Rolando Garcia}, Shreya Shankar. October 2022. &
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Doordash, 2022} \\
-  Shreya Shankar, \emph{Rolando Garcia}. San Francisco, CA, October 2022. & San Francisco
+  Shreya Shankar, \emph{Rolando Garcia}. October 2022. &
 \end{tabular*}\vspace{0pt}
 
 \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
   \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{MLOps World, 2022} \\
-  \emph{Rolando Garcia}, Shreya Shankar. San Francisco Bay Area, October 2022. & San Francisco
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Accelerate Your ML Experiments with Flor}  & \emph{Podcast.\_\_init\_\_, 2022} \\
-  \emph{Rolando Garcia}. Hosted by Tobias Macey, April 2022. &
-  \href{https://www.pythonpodcast.com/flor-machine-learning-experiment-episode-362/}{\texttt{pythonpodcast.com}}
+  Shreya Shankar, \emph{Rolando Garcia}. San Francisco Bay Area, October 2022. & San Francisco
 \end{tabular*}\vspace{0pt}
 
 
