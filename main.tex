@@ -107,6 +107,23 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+% Publications and talks: the text column wraps on its own, so every line fills
+% the full measure instead of breaking wherever it was typed by hand.
+% [#1] = width reserved for the venue block plus a gutter (default 1.35in)
+% #2 = venue block (right-aligned, use \\ for a second line)
+% #3 = title   #4 = authors and venue (use \newline for an extra note line)
+\newlength{\pubwidth}
+
+\newcommand{\pubEntry}[4][1.35in]{%
+  \setlength{\pubwidth}{0.97\textwidth}%
+  \addtolength{\pubwidth}{-#1}%
+  \item\begin{tabular*}{0.97\textwidth}[t]{@{}p{\pubwidth}@{\extracolsep{\fill}}r@{}}
+    \hyphenpenalty=10000 \exhyphenpenalty=10000 \tolerance=3000 \emergencystretch=2em
+    \textbf{#3.} #4 &
+      \begin{tabular}[t]{@{}r@{}}#2\end{tabular} \\
+  \end{tabular*}\vspace{0pt}%
+}
+
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -123,8 +140,8 @@
 \begin{document}
 
 \begin{center}
-  \textbf{\Huge \textsc{Rolando S. Garcia, Ph.D.}} \\ \vspace{1pt}
-  \href{mailto:rogarcia@berkeley.edu}{rogarcia@berkeley.edu} $|$
+  \textbf{\LARGE \textsc{Rolando S. Garcia, Ph.D.}} \\ \vspace{1pt}
+  \href{mailto:rolando.garcia@asu.edu}{rolando.garcia@asu.edu} $|$
   \href{https://rlnsanz.github.io}{https://rlnsanz.github.io}\\
 \end{center}
 
@@ -245,57 +262,44 @@
 \section{Publications}
 \resumeSubHeadingListStart
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Cumulative Ground Truth Maintenance from Books \& Documents} & \emph{Submitted,}\\
-  Erick Duarte, Akshit Jain, Ross Maciejewski, \emph{Rolando Garcia}. & \emph{SIGMOD 2027} \\
-  \textit{ACM SIGMOD International Conference on Management of Data}, under review. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{Submitted,}\\ \emph{CIDR 2027}}
+  {Digitization as View Maintenance: From Source-Preserving Capture to Verified Corpora}
+  {Erick Duarte, Akshit Jain, Rohan Boddu, Tyson Winarski, Ross Maciejewski, \emph{Rolando Garcia}.
+   \textit{Conference on Innovative Data Systems Research}, under review.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Citation Analysis and Deterministic Evaluation at Scale} & \emph{Submitted,}\\
-  \emph{Rolando Garcia}, Akshit Jain, Shiyi Liu, Rostyslav Hnatyshyn, Fan Lei, Ross Maciejewski. & \emph{TIIS 2026} \\
-  \textit{ACM Transactions on Interactive Intelligent Systems}, under review. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{Submitted,}\\ \emph{TIIS 2026}}
+  {Citation Analysis and Deterministic Evaluation at Scale}
+  {\emph{Rolando Garcia}, Akshit Jain, Shiyi Liu, Rostyslav Hnatyshyn, Fan Lei, Ross Maciejewski.
+   \textit{ACM Transactions on Interactive Intelligent Systems}, under review.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{\textsc{IDSpace}: A Novel Document Generator for Reliable Evaluation of} & \emph{Submitted,}\\
-  \textbf{Digital Identity Verification Systems} & \emph{ICDM 2026} \\
-  Lulu Xie, Yancheng Wang, Kanchan Chowdhury, \emph{Rolando Garcia}, Yingzhen Yang, Jia Zou. & \\
-  \textit{IEEE International Conference on Data Mining}, under review. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{Submitted,}\\ \emph{ICDM 2026}}
+  {\textsc{IDSpace}: A Novel Document Generator for Reliable Evaluation of Digital Identity Verification Systems}
+  {Lulu Xie, Yancheng Wang, Kanchan Chowdhury, \emph{Rolando Garcia}, Yingzhen Yang, Jia Zou.
+   \textit{IEEE International Conference on Data Mining}, under review.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Cost-Benefit Modeling of Interactive Visual Machine Learning Systems} & \emph{VIS} 2026 \\
-  Yixuan Wang, \emph{Rolando Garcia}, Alex Endert, Ross Maciejewski. & \\
-  \textit{IEEE Transactions on Visualization and Computer Graphics}, 2026. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{VIS} 2026}
+  {Cost-Benefit Modeling of Interactive Visual Machine Learning Systems}
+  {Yixuan Wang, \emph{Rolando Garcia}, Alex Endert, Ross Maciejewski.
+   \textit{IEEE Transactions on Visualization and Computer Graphics}, 2026.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Flow with FlorDB: Incremental Context Maintenance for the ML Lifecycle} & \emph{CIDR} 2025 \\
-  % \textbf{Machine Learning Lifecycle} & \\
-  \emph{Rolando Garcia}, Pragya Kallanagoudar, Chithra Anand, Sarah E. Chasins, & \\
-  Erin M. Kerrison, Aditya G. Parameswaran, Joseph M. Hellerstein. & \\
-  \textit{Conference on Innovative Data Systems Research}, 2025. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{CIDR} 2025}
+  {Flow with FlorDB: Incremental Context Maintenance for the ML Lifecycle}
+  {\emph{Rolando Garcia}, Pragya Kallanagoudar, Chithra Anand, Sarah E. Chasins,
+   Erin M. Kerrison, Aditya G. Parameswaran, Joseph M. Hellerstein.
+   \textit{Conference on Innovative Data Systems Research}, 2025.}
 
+\pubEntry{\emph{CSCW} 2024}
+  {``We Have No Idea How Models will Behave in Production until Production":
+   How Engineers Operationalize Machine Learning}
+  {Shreya Shankar\textsuperscript{*}, \emph{Rolando Garcia}\textsuperscript{*}, Joseph M. Hellerstein, Aditya G. Parameswaran.
+   \textit{ACM Conf' on Computer Supported Cooperative Work and Social Computing} 2024.\newline
+   \textsuperscript{*}Co-first authors. \textbf{Honorable Mention:} MLOps Community Best Paper Award}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{``We Have No Idea How Models will Behave in Production until Production":} & \emph{CSCW} 2024 \\
-  \textbf{How Engineers Operationalize Machine Learning} & \\
-  Shreya Shankar\textsuperscript{*}, \emph{Rolando Garcia}\textsuperscript{*}, Joseph M. Hellerstein, Aditya G. Parameswaran.  &  \\
-  \textit{ACM Conf' on Computer Supported Cooperative Work and Social Computing} 2024. & \\
-
-  \textsuperscript{*}Co-first authors. \textbf{Honorable Mention:} MLOps Community Best Paper Award & \\
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Quilt: Custom UIs for Linking Unstructured Documents} & \emph{UIST Demo} 2024 \\
-  \textbf{to Structured Dataasets} & \\
-  Pragya Kallanagoudar, Chithra Anand, \emph{Rolando Garcia}, Rebecca M. M. Hicke, & \\
-  Aditya G. Parameswaran, Eunice Jun , Sarah E. Chasins. \textit{UIST Adjunct '24:} & \\
-  \textit{Proceedings of the 37th Annual ACM Symposium on User Interface Software} & \\
-  \textit{and Technology}, 2024.
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{UIST Demo} 2024}
+  {Quilt: Custom UIs for Linking Unstructured Documents to Structured Dataasets}
+  {Pragya Kallanagoudar, Chithra Anand, \emph{Rolando Garcia}, Rebecca M. M. Hicke,
+   Aditya G. Parameswaran, Eunice Jun, Sarah E. Chasins. \textit{UIST Adjunct '24:
+   Proceedings of the 37th Annual ACM Symposium on User Interface Software and Technology}, 2024.}
 
 
 % \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -304,39 +308,27 @@
 %   Joseph E. Gonzalez, Joseph M. Hellerstein, Koushik Sen. \emph{ArXiv}, 2024.
 % \end{tabular*}\vspace{0pt}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Hindsight Logging for Model Training} & \emph{VLDB} 2021 \\
-  \emph{Rolando Garcia}, Eric Liu,Vikram Sreekanti, Bobby Yan, Anusha Dandamudi, & \\
-   Joseph E. Gonzalez, Joseph M. Hellerstein, Koushik Sen. \textit{Proceedings of the} & \\
-  \textit{VLDB Endowment}, 14(4): 682-693, 2021.
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{VLDB} 2021}
+  {Hindsight Logging for Model Training}
+  {\emph{Rolando Garcia}, Eric Liu, Vikram Sreekanti, Bobby Yan, Anusha Dandamudi,
+   Joseph E. Gonzalez, Joseph M. Hellerstein, Koushik Sen.
+   \textit{Proceedings of the VLDB Endowment}, 14(4): 682-693, 2021.}
 
+\pubEntry{\emph{KDD CMI} 2018}
+  {Context: The Missing Piece in the Machine Learning Lifecycle}
+  {\emph{Rolando Garcia}, Vikram Sreekanti, Neeraja Yadwadkar, Daniel Crankshaw,
+   Joseph E. Gonzalez, Joseph M. Hellerstein.
+   \textit{Workshop on Common Model Infrastructure} at KDD, 2018.}
 
+\pubEntry{\emph{ACM TIIS} 2018}
+  {A Visual Analytics Framework for Exploring Theme Park Dynamics}
+  {Michael Steptoe, Robert Kr\"uger, \emph{Rolando Garcia}, Xing Liang, Ross Maciejewski.
+   \textit{ACM Transactions on Interactive Intelligent Systems}, 2018.}
 
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Context: The Missing Piece in the Machine Learning Lifecycle} & \emph{KDD CMI} 2018 \\
-  \emph{Rolando Garcia}, Vikram Sreekanti, Neeraja Yadwadkar, Daniel Crankshaw, & \\
-  Joseph E. Gonzalez, Joseph M. Hellerstein. & \\
-  \textit{Workshop on Common Model Infrastructure} at KDD, 2018.
-\end{tabular*}\vspace{0pt}
-
-
-
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{A Visual Analytics Framework for Exploring Theme Park Dynamics} & \emph{ACM TIIS} 2018 \\
-  Michael Steptoe, Robert Kr\"uger, \emph{Rolando Garcia}, Xing Liang, Ross Maciejewski. & \\
-  \textit{ACM Transactions on Interactive Intelligent Systems}, 2018.
-\end{tabular*}\vspace{0pt}
-
-
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{The State-of-the-Art in Predictive Visual Analytics} & \emph{CGF} 2017 \\
-  Yafeng Lu, \emph{Rolando Garcia}, Brett Hansen, Michael Gleicher, Ross Maciejewski. & \\
-  \textit{Computer Graphics Forum}, 2017.
-\end{tabular*}\vspace{0pt}
+\pubEntry{\emph{CGF} 2017}
+  {The State-of-the-Art in Predictive Visual Analytics}
+  {Yafeng Lu, \emph{Rolando Garcia}, Brett Hansen, Michael Gleicher, Ross Maciejewski.
+   \textit{Computer Graphics Forum}, 2017.}
 
 
 % \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -354,154 +346,98 @@
 \section{Talks}
 \resumeSubHeadingListStart
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Incremental Context Maintenance for the ML Lifecycle} & \emph{CIDR} 2025 \\
-  \emph{Rolando Garcia}, Pragya Kallanagoudar, Chithra Anand, Sarah E. Chasins, \ & Amsterdam \\
-  Erin M. Kerrison, Aditya G. Parameswaran, Joseph M. Hellerstein. & \\
-  \textit{Conference on Innovative Data Systems Research}. January 2025. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{CIDR} 2025\\ Amsterdam}
+  {Incremental Context Maintenance for the ML Lifecycle}
+  {\emph{Rolando Garcia}, Pragya Kallanagoudar, Chithra Anand, Sarah E. Chasins,
+   Erin M. Kerrison, Aditya G. Parameswaran, Joseph M. Hellerstein.
+   \textit{Conference on Innovative Data Systems Research}. January 2025.}
 
+\pubEntry[1.75in]{\emph{CSCW} 2024\\ Costa Rica}
+  {How Engineers Operationalize Machine Learning}
+  {Shreya Shankar, \emph{Rolando Garcia}, Joseph M. Hellerstein, Aditya G. Parameswaran.
+   \textit{ACM Conf' on Computer Supported Cooperative Work and Social Computing}. November 2024.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{How Engineers Operationalize Machine Learning} & \emph{CSCW} 2024 \\
-  Shreya Shankar, \emph{Rolando Garcia}, Joseph M. Hellerstein, Aditya G. Parameswaran. \ & Costa Rica \\
-  \textit{ACM Conf' on Computer Supported Cooperative Work and Social Computing}. & \\
-  November 2024. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{Mines Seminar}, 2024\\ Golden, CO}
+  {Flow with FlorDB: Agile MLOps without Compromises}
+  {\emph{Rolando Garcia}. Colorado School of Mines. October 2024.}
 
+\pubEntry[1.75in]{\emph{Flyte, 2022}}
+  {Operationalizing Machine Learning: An Interview Study}
+  {\emph{Rolando Garcia}, Shreya Shankar. December 2022.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Flow with FlorDB: Agile MLOps without Compromises}  & \emph{Mines Seminar}, 2024 \\
-  \emph{Rolando Garcia}. Colorado School of Mines. October 2024. & Golden, CO \\
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{Inaugural Address, 2022}\\ EPIC, UC Berkeley}
+  {Operationalizing Machine Learning: An Interview Study}
+  {Shreya Shankar, \emph{Rolando Garcia}. Berkeley, CA, October 2022.}
 
+\pubEntry[1.75in]{\emph{Canva, 2022}}
+  {Operationalizing Machine Learning: An Interview Study}
+  {Shreya Shankar, \emph{Rolando Garcia}. October 2022.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Flyte, 2022} \\
-  \emph{Rolando Garcia}, Shreya Shankar. December 2022. &
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{MLOps World, 2022}\\ San Francisco}
+  {Operationalizing Machine Learning: An Interview Study}
+  {Shreya Shankar, \emph{Rolando Garcia}. San Francisco Bay Area, October 2022.}
 
+\pubEntry[1.75in]{\emph{Cornell Seminar, 2022}}
+  {FLOR: Managing the Infinite Virtual Metadata of Model Training}
+  {\emph{Rolando Garcia}. Cornell University, February 2022.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Inaugural Address, 2022} \\
-  Shreya Shankar, \emph{Rolando Garcia}. Berkeley, CA, October 2022. & EPIC, UC Berkeley
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{VLDB} 2021\\ Copenhagen}
+  {Hindsight Logging for Model Training}
+  {\emph{Rolando Garcia}, Eric Liu, Vikram Sreekanti, Anusha Dandamudi, Bobby Yan,
+   Joseph Gonzalez, Koushik Sen, Joseph Hellerstein.
+   \textit{International Conference on Very Large Databases}. August 2021.}
 
+\pubEntry[1.75in]{\emph{RISE Retreat} 2019}
+  {Choose What to Log, After you Execute}
+  {\emph{Rolando Garcia}, Eric Liu, Vikram Sreekanti, Anusha Dandamudi, Bobby Yan,
+   Joseph Gonzalez, Koushik Sen, Joseph Hellerstein. Retreat talk to lab sponsors.
+   Monterey, CA. January 2019.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{Canva, 2022} \\
-  Shreya Shankar, \emph{Rolando Garcia}. October 2022. &
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{RISE Camp} 2018}
+  {ML in Context: Preserve, Share, and Analyze Experiments with Flor}
+  {\emph{Rolando Garcia}, Vikram Sreekanti, Neeraja Yadwadkar, Daniel Crankshaw,
+   Sona Jeswani, Eric Liu, Malhar Patel, Joseph Gonzalez, Joseph Hellerstein.
+   Talk and Tutorial for lab sponsors. Berkeley, CA. October 2018.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Operationalizing Machine Learning: An Interview Study}  & \emph{MLOps World, 2022} \\
-  Shreya Shankar, \emph{Rolando Garcia}. San Francisco Bay Area, October 2022. & San Francisco
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{KDD} 2018\\ London}
+  {Context: The Missing Piece in the Machine Learning Lifecycle}
+  {\emph{Rolando Garcia}, Vikram Sreekanti, Neeraja Yadwadkar, Daniel Crankshaw,
+   Joseph Gonzalez, Joseph Hellerstein.
+   \textit{The 24\textsuperscript{th} ACM SIGKDD Intl' Conf}. August 2018.}
 
+\pubEntry[1.75in]{\emph{Amazon} 2018\\ Palo Alto}
+  {Data Management Challenges in the Machine Learning Lifecycle}
+  {\emph{Rolando Garcia}, Vikram Sreekanti, Daniel Crankshaw, Neeraja Yadwadkar,
+   Sona Jeswani, Eric Liu, Malhar Patel, Joseph Gonzalez, Joseph Hellerstein.
+   Invited talk at Amazon Search. Palo Alto, CA. April 2018.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{FLOR: Managing the Infinite Virtual Metadata of Model Training} & \emph{Cornell Seminar, 2022} \\
-  \emph{Rolando Garcia}. Cornell University, February 2022. & \\
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{RISE Retreat} 2018}
+  {Design, Run, and Reproduce Experiments with Jarvis}
+  {\emph{Rolando Garcia}, Vikram Sreekanti, Daniel Crankshaw, Neeraja Yadwadkar,
+   Alexey Tumanov, Joseph Gonzalez, Joseph Hellerstein.
+   Retreat talk to lab sponsors. Monterey, CA. January 2018.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Hindsight Logging for Model Training} & \emph{VLDB} 2021 \\
-  \emph{Rolando Garcia}, Eric Liu, Vikram Sreekanti, Anusha Dandamudi, Bobby Yan, & Copenhagen \\
-  Joseph Gonzalez, Koushik Sen, Joseph Hellerstein. \textit{International Conference} & \\
-  \textit{on Very Large Databases}.  August 2021. & \\
+\pubEntry[1.75in]{\emph{Google} 2017\\ Mountain View}
+  {Jarvis: Managing the Machine Learning Lifecycle}
+  {\emph{Rolando Garcia}, Vikram Sreekanti, Daniel Crankshaw, Neeraja Yadwadkar,
+   Alexey Tumanov, Joseph Gonzalez, Joseph Hellerstein.
+   Invited talk at Google. Mountain View, CA. September 2017.}
 
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{EuroVis} 2017\\ Barcelona}
+  {The State-of-the-Art in Predictive Visual Analytics}
+  {Yafeng Lu, \emph{Rolando Garcia}, Brett Hansen, Michael Gleicher, Ross Maciejewski.
+   \textit{$19^{th}$ EG/VGTC Conference on Visualization}, Barcelona, Spain. June 2017.}
 
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Choose What to Log, After you Execute} & \emph{RISE Retreat} 2019 \\
-  \emph{Rolando Garcia}, Eric Liu, Vikram Sreekanti, Anusha Dandamudi, Bobby Yan, &  \\
-  Joseph Gonzalez, Koushik Sen, Joseph Hellerstein. Retreat talk to lab sponsors.& \\
-  Monterey, CA. January 2019. &
+\pubEntry[1.75in]{\emph{LANS} 2016}
+  {Automatic Design and Optimization of Deep Learning Models}
+  {\emph{Rolando Garcia}, Randal Olson, Jason Moore.
+   \textit{The Leadership Alliance National Symposium}, Stamford, CT. July 2016.}
 
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{ML in Context: Preserve, Share, and Analyze Experiments with Flor} & \emph{RISE Camp} 2018 \\
-  \emph{Rolando Garcia}, Vikram Sreekanti, Neeraja Yadwadkar, Daniel Crankshaw, & \\
-  Sona Jeswani, Eric Liu, Malhar Patel, Joseph Gonzalez, Joseph Hellerstein.  & \\
-  Talk and Tutorial for lab sponsors. Berkeley, CA. October 2018. &
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Context: The Missing Piece in the Machine Learning Lifecycle} & \emph{KDD} 2018 \\
-  \emph{Rolando Garcia}, Vikram Sreekanti, Neeraja Yadwadkar, Daniel Crankshaw, & London\\
-  Joseph Gonzalez, Joseph Hellerstein. \textit{The 24\textsuperscript{th} ACM SIGKDD Intl' Conf}. August 2018. & \\
-
-\end{tabular*}\vspace{0pt}
-
-
-
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Data Management Challenges in the Machine Learning Lifecycle} & \emph{Amazon} 2018 \\
-  \emph{Rolando Garcia},
-  Vikram Sreekanti,
-  Daniel Crankshaw,
-  Neeraja Yadwadkar,
-  & Palo Alto\\
-  Sona Jeswani,
-  Eric Liu,
-  Malhar Patel,
-  Joseph Gonzalez,
-  Joseph Hellerstein. & \\
-  Invited talk at Amazon Search.
-  Palo Alto, CA. April 2018. &
-
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Design, Run, and Reproduce Experiments with Jarvis} & \emph{RISE Retreat} 2018 \\
-  \emph{Rolando Garcia},
-  Vikram Sreekanti,
-  Daniel Crankshaw,
-  Neeraja Yadwadkar, & \\
-  Alexey Tumanov,
-  Joseph Gonzalez,
-  Joseph Hellerstein. & \\
-  Retreat talk to lab sponsors. Monterey, CA. January 2018. &
-\end{tabular*}\vspace{0pt}
-
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Jarvis: Managing the Machine Learning Lifecycle} & \emph{Google} 2017 \\
-  \emph{Rolando Garcia},
-  Vikram Sreekanti,
-  Daniel Crankshaw,
-  Neeraja Yadwadkar, & Mountain View\\
-  Alexey Tumanov,
-  Joseph Gonzalez,
-  Joseph Hellerstein. & \\
-  Invited talk at Google. Mountain View, CA. September 2017. &
-\end{tabular*}\vspace{0pt}
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{The State-of-the-Art in Predictive Visual Analytics} & \emph{EuroVis} 2017 \\
-  Yafeng Lu, \emph{Rolando Garcia}, Brett Hansen,
-  Michael Gleicher, Ross Maciejewski. & Barcelona \\
-  \textit{$19^{th}$ EG/VGTC Conference on Visualization}, Barcelona, Spain. June 2017. &
-\end{tabular*}\vspace{0pt}
-
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{Automatic Design and Optimization of Deep Learning Models} & \emph{LANS} 2016 \\
-  \emph{Rolando Garcia}, Randal Olson, Jason Moore. & \\
-  \textit{The Leadership Alliance National Symposium}, Stamford, CT. July 2016.
-\end{tabular*}\vspace{0pt}
-
-
-\item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-  \textbf{VAST 2015 Grand Challenge -- Team VADER/VIS} & \emph{VAST} 2015 \\
-  Michael Steptoe, Robert Kr\"uger, Yifan Zhang,
-  Xing Liang, \emph{Rolando Garcia}, & Chicago \\
-  Sagarika Kadambi, Wei Luo,
-  Thomas Ertl, Ross Maciejewski. & \\
-  \textit{IEEE Visual Analytics Science and Technology Conference}, Chicago, IL. October 2015.
-\end{tabular*}\vspace{0pt}
+\pubEntry[1.75in]{\emph{VAST} 2015\\ Chicago}
+  {VAST 2015 Grand Challenge -- Team VADER/VIS}
+  {Michael Steptoe, Robert Kr\"uger, Yifan Zhang, Xing Liang, \emph{Rolando Garcia},
+   Sagarika Kadambi, Wei Luo, Thomas Ertl, Ross Maciejewski.
+   \textit{IEEE Visual Analytics Science and Technology Conference}, Chicago, IL. October 2015.}
 
 
 \resumeSubHeadingListEnd
