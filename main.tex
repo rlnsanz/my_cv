@@ -1,16 +1,14 @@
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
-\usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage[margin=0.65in,top=0.55in,bottom=0.6in]{geometry}
+\usepackage[expansion=false]{microtype}
 \input{glyphtounicode}
 \usepackage{hyperref}
 \usepackage[T1]{fontenc}
@@ -37,23 +35,17 @@
 \setlength{\footskip}{6pt}
 \setlength{\skip\footins}{14pt}
 
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{0pt}
-\addtolength{\textheight}{0.0in}
-
 \urlstyle{same}
 
 \raggedbottom
 \raggedright
+\setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0in}
 
 % Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\renewcommand{\section}[1]{%
+  \vspace{7pt}\par\noindent{\large\scshape\raggedright #1\par}
+  \vspace{1pt}\noindent\color{black}\rule{\textwidth}{0.4pt}\vspace{-3pt}}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -67,44 +59,44 @@
 }
 
 \newcommand{\dissertationHeading}[5]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \item
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \small#3 & \textit{\small #4} \\
       Dissertation: \textit{#5}  & \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \item
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \small#3 & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeSubheadingExtra}[5]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \item
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \small#3 & \textit{\small #4} \\
       \small#5 & \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
     \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
       #1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
     \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 % Publications and talks: the text column wraps on its own, so every line fills
@@ -115,9 +107,9 @@
 \newlength{\pubwidth}
 
 \newcommand{\pubEntry}[4][1.35in]{%
-  \setlength{\pubwidth}{0.97\textwidth}%
+  \setlength{\pubwidth}{\linewidth}%
   \addtolength{\pubwidth}{-#1}%
-  \item\begin{tabular*}{0.97\textwidth}[t]{@{}p{\pubwidth}@{\extracolsep{\fill}}r@{}}
+  \item\begin{tabular*}{\linewidth}[t]{@{}p{\pubwidth}@{\extracolsep{\fill}}r@{}}
     \hyphenpenalty=10000 \exhyphenpenalty=10000 \tolerance=3000 \emergencystretch=2em
     \textbf{#3.} #4 &
       \begin{tabular}[t]{@{}r@{}}#2\end{tabular} \\
@@ -128,9 +120,9 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}\setlength{\leftmargin}{0.15in}\setlength{\topsep}{3pt}\setlength{\partopsep}{0pt}\setlength{\itemsep}{2pt}\setlength{\parsep}{0pt}\renewcommand{\labelitemi}{}}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}\setlength{\topsep}{3pt}\setlength{\partopsep}{0pt}\setlength{\itemsep}{2pt}\setlength{\parsep}{0pt}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
@@ -262,20 +254,15 @@
 \section{Publications}
 \resumeSubHeadingListStart
 
-\pubEntry{\emph{Submitted,}\\ \emph{CIDR 2027}}
-  {Digitization as View Maintenance: From Source-Preserving Capture to Verified Corpora}
-  {Erick Duarte, Akshit Jain, Rohan Boddu, Tyson Winarski, Ross Maciejewski, \emph{Rolando Garcia}.
-   \textit{Conference on Innovative Data Systems Research}, under review.}
-
 \pubEntry{\emph{Submitted,}\\ \emph{TIIS 2026}}
   {Citation Analysis and Deterministic Evaluation at Scale}
   {\emph{Rolando Garcia}, Akshit Jain, Shiyi Liu, Rostyslav Hnatyshyn, Fan Lei, Ross Maciejewski.
    \textit{ACM Transactions on Interactive Intelligent Systems}, under review.}
 
-\pubEntry{\emph{Submitted,}\\ \emph{ICDM 2026}}
+\pubEntry{\emph{ICDM} 2026}
   {\textsc{IDSpace}: A Novel Document Generator for Reliable Evaluation of Digital Identity Verification Systems}
   {Lulu Xie, Yancheng Wang, Kanchan Chowdhury, \emph{Rolando Garcia}, Yingzhen Yang, Jia Zou.
-   \textit{IEEE International Conference on Data Mining}, under review.}
+   \textit{IEEE International Conference on Data Mining}, 2026.}
 
 \pubEntry{\emph{VIS} 2026}
   {Cost-Benefit Modeling of Interactive Visual Machine Learning Systems}
@@ -298,8 +285,7 @@
 \pubEntry{\emph{UIST Demo} 2024}
   {Quilt: Custom UIs for Linking Unstructured Documents to Structured Dataasets}
   {Pragya Kallanagoudar, Chithra Anand, \emph{Rolando Garcia}, Rebecca M. M. Hicke,
-   Aditya G. Parameswaran, Eunice Jun, Sarah E. Chasins. \textit{UIST Adjunct '24:
-   Proceedings of the 37th Annual ACM Symposium on User Interface Software and Technology}, 2024.}
+   Aditya G. Parameswaran, Eunice Jun, Sarah E. Chasins. \textit{UIST Adjunct '24: Proceedings of the 37th Annual ACM Symposium on User Interface Software and Technology}, 2024.}
 
 
 % \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -331,14 +317,6 @@
    \textit{Computer Graphics Forum}, 2017.}
 
 
-% \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-%   \textbf{VADER/VIS Grand Challenge Award} & \emph{IEEE VAST} 2015 \\
-%   Michael Steptoe, Robert Kr\"uger, Yifan Zhang,
-%   Xing Liang, \emph{Rolando Garcia}, & \\
-%   Sagarika Kadambi, Wei Luo,
-%   Thomas Ertl, Ross Maciejewski. & \\
-%   \textit{Proceedings of the IEEE VAST Challenge Workshop}, 2015.
-% \end{tabular*}\vspace{0pt}
 \resumeSubHeadingListEnd
 
 % \pagebreak
@@ -443,7 +421,10 @@
 \resumeSubHeadingListEnd
 
 \section{Teaching}
-\begin{itemize}[leftmargin=0.15in, label={}, itemsep=5pt]
+\begin{itemize}
+\setlength{\leftmargin}{0.15in}
+\setlength{\itemsep}{5pt}
+\renewcommand{\labelitemi}{}
 \resumeSubheadingExtra
 {Introduction to Database Systems (COMPSCI 186/286)}{Spring 2018}
 {\url{http://cs186berkeley.net} | Graduate Student Instructor, 450 students.}{University of California, Berkeley}
