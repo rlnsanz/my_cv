@@ -7,6 +7,10 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage[bottom]{footmisc}
 \usepackage[margin=0.65in,top=0.55in,bottom=0.6in]{geometry}
 \usepackage[expansion=false]{microtype}
 \input{glyphtounicode}
@@ -29,10 +33,9 @@
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\setlength{\footskip}{6pt}
+\setlength{\footskip}{18pt}
 \setlength{\skip\footins}{14pt}
 
 \urlstyle{same}
@@ -42,10 +45,9 @@
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
-\renewcommand{\section}[1]{%
-  \vspace{7pt}\par\noindent{\large\scshape\raggedright #1\par}
-  \vspace{1pt}\noindent\color{black}\rule{\textwidth}{0.4pt}\vspace{-3pt}}
+% Keep section titles with their first entry and use a compact, consistent rule.
+\titleformat{\section}{\large\scshape\raggedright}{}{0pt}{}[\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -99,8 +101,7 @@
     \end{tabular*}\vspace{-4pt}
 }
 
-% Publications and talks: the text column wraps on its own, so every line fills
-% the full measure instead of breaking wherever it was typed by hand.
+% Publications and talks: separate titles from details and avoid stretched spaces.
 % [#1] = width reserved for the venue block plus a gutter (default 1.35in)
 % #2 = venue block (right-aligned, use \\ for a second line)
 % #3 = title   #4 = authors and venue (use \newline for an extra note line)
@@ -110,9 +111,10 @@
   \setlength{\pubwidth}{\linewidth}%
   \addtolength{\pubwidth}{-#1}%
   \item\begin{tabular*}{\linewidth}[t]{@{}p{\pubwidth}@{\extracolsep{\fill}}r@{}}
-    \hyphenpenalty=10000 \exhyphenpenalty=10000 \tolerance=3000 \emergencystretch=2em
-    \textbf{#3.} #4 &
-      \begin{tabular}[t]{@{}r@{}}#2\end{tabular} \\
+    \raggedright
+    \textbf{#3.}\par
+    #4 &
+      \small\begin{tabular}[t]{@{}r@{}}#2\end{tabular} \\
   \end{tabular*}\vspace{0pt}%
 }
 
@@ -120,9 +122,9 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}\setlength{\leftmargin}{0.15in}\setlength{\topsep}{3pt}\setlength{\partopsep}{0pt}\setlength{\itemsep}{2pt}\setlength{\parsep}{0pt}\renewcommand{\labelitemi}{}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in,label={},topsep=3pt,partopsep=0pt,itemsep=6pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}\setlength{\topsep}{3pt}\setlength{\partopsep}{0pt}\setlength{\itemsep}{2pt}\setlength{\parsep}{0pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[topsep=3pt,partopsep=0pt,itemsep=2pt,parsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
@@ -130,6 +132,11 @@
 
 
 \begin{document}
+
+% Give the opening page slightly larger text; later pages retain the base sizes.
+\begingroup
+\fontsize{10.95}{13.2}\selectfont
+\renewcommand{\small}{\fontsize{10}{12}\selectfont}
 
 \begin{center}
   \textbf{\LARGE \textsc{Rolando S. Garcia, Ph.D.}} \\ \vspace{1pt}
@@ -203,7 +210,7 @@
 }{June 2017 -- June 2024}
 {NSF Graduate Research Fellow, advised by \href{https://dsf.berkeley.edu/jmh/}{\underline{Dr. Joe Hellerstein}}}{University of California, Berkeley}
 \resumeItemListStart
-\resumeItem{FlorDB: a hindsight logging database for the machine learning lifecycle.} \quad \quad \quad \quad \quad  \texttt{github.com/ucbrise/flor}
+\resumeItem{FlorDB: a hindsight logging database for the machine learning lifecycle. \hfill \texttt{github.com/ucbrise/flor}}
 \resumeItem{MLOps Interview Study: How Engineers Operationalize Machine Learning, w/ Shreya Shankar et al. (2024).}
 % \resumeItem{\textbf{Dissertation}: The management of context in the machine learning lifecycle.}
 \resumeItem{\textbf{Internships}: Linea Labs (\emph{startup}).}
@@ -243,7 +250,8 @@
 % \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\pagebreak
+\clearpage
+\endgroup
 %-----------PROJECTS-----------
 
 \section{Publications}
@@ -309,15 +317,13 @@
 
 \resumeSubHeadingListEnd
 
-% \pagebreak
-
 \section{Talks}
 \resumeSubHeadingListStart
 
 \pubEntry[1.75in]{\emph{VIS} 2026\\ Boston, MA}
   {\href{https://rlnsanz.github.io/vis26.html}{Cost-Benefit Modeling of Interactive Visual Machine Learning Systems}}
   {Yixuan Wang, \emph{Rolando Garcia}, Alex Endert, Ross Maciejewski.
-   \textit{\href{https://ieeevis.org/year/2026/program/content/745debe9-8a21-4f5c-9d92-fcef456704ff/}{IEEE VIS}}. November 10, 2026.}
+   \textit{\href{https://ieeevis.org/year/2026/program/content/745debe9-8a21-4f5c-9d92-fcef456704ff/}{IEEE VIS}}. November~10,~2026.}
 
 \pubEntry[1.75in]{\emph{CIDR} 2025\\ Amsterdam}
   {Incremental Context Maintenance for the ML Lifecycle}
@@ -388,13 +394,13 @@
   {Design, Run, and Reproduce Experiments with Jarvis}
   {\emph{Rolando Garcia}, Vikram Sreekanti, Daniel Crankshaw, Neeraja Yadwadkar,
    Alexey Tumanov, Joseph Gonzalez, Joseph Hellerstein.
-   Retreat talk to lab sponsors. Monterey, CA. January 2018.}
+   Retreat talk to lab sponsors. Monterey, CA. January~2018.}
 
 \pubEntry[1.75in]{\emph{Google} 2017\\ Mountain View}
   {Jarvis: Managing the Machine Learning Lifecycle}
   {\emph{Rolando Garcia}, Vikram Sreekanti, Daniel Crankshaw, Neeraja Yadwadkar,
    Alexey Tumanov, Joseph Gonzalez, Joseph Hellerstein.
-   Invited talk at Google. Mountain View, CA. September 2017.}
+   Invited talk at Google. Mountain View, CA. September~2017.}
 
 \pubEntry[1.75in]{\emph{EuroVis} 2017\\ Barcelona}
   {The State-of-the-Art in Predictive Visual Analytics}
@@ -415,11 +421,9 @@
 
 \resumeSubHeadingListEnd
 
+\Needspace{110pt}
 \section{Teaching}
-\begin{itemize}
-\setlength{\leftmargin}{0.15in}
-\setlength{\itemsep}{5pt}
-\renewcommand{\labelitemi}{}
+\resumeSubHeadingListStart
 \resumeSubheadingExtra
 {Introduction to Database Systems (COMPSCI 186/286)}{Spring 2018}
 {\url{http://cs186berkeley.net} | Graduate Student Instructor, 450 students.}{University of California, Berkeley}
@@ -430,9 +434,7 @@
 \resumeSubheading
 {Introduction to Ethics (PHI 105)}{Fall 2013}
 {Undergraduate Student Instructor, 50 students}{Northern Arizona University, Flagstaff}
-\end{itemize}
-
-\pagebreak
+\resumeSubHeadingListEnd
 
 \section{Service}
 \resumeSubHeadingListStart
